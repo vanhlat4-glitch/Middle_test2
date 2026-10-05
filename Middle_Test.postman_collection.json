@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "MindX Middle Test - WEB FULLSTACK",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Đăng ký (Register)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userName\": \"vietanh\",\n  \"email\": \"vietanh@gmail.com\",\n  \"password\": \"12345678\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/users/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["users", "register"]
+        }
+      }
+    },
+    {
+      "name": "2. Đăng nhập (Login)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"vietanh@gmail.com\",\n  \"password\": \"12345678\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/users/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["users", "login"]
+        }
+      }
+    },
+    {
+      "name": "2b. Xem Profile (Bearer Token Lesson 8)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3001/profile",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["profile"]
+        }
+      }
+    },
+    {
+      "name": "2c. Xem Profile (Query apiKey)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3001/profile?apiKey={{apiKey}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["profile"],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. Tạo bài post (Query apiKey)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Nội dung bài viết chia sẻ đầu tiên trên hệ thống\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/posts?apiKey={{apiKey}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["posts"],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "3b. Tạo bài post (Bearer Token Lesson 8)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Nội dung bài viết tạo bằng JWT Token\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/posts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["posts"]
+        }
+      }
+    },
+    {
+      "name": "4. Cập nhật bài post (Query apiKey)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Nội dung bài viết đã được chỉnh sửa mới\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/posts/{{postId}}?apiKey={{apiKey}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["posts", "{{postId}}"],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "{{apiKey}}"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
